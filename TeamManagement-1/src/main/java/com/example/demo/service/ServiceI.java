@@ -10,4 +10,6 @@ public interface ServiceI {
 
 	List<Team> getAll();
 
+	Team getSingleData(int id);
+
 }
