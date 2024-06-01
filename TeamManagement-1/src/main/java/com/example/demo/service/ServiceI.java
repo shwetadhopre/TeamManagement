@@ -11,6 +11,9 @@ public interface ServiceI {
 
 	List<Team> getAll();
 
+	Team getSinglename(String tname);
+
+
 	Team getSingleData(int id);
 
 

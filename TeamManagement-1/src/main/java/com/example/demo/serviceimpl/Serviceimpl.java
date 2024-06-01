@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import com.example.demo.exception.NameIsNotFoundException;
 import com.example.demo.exception.TeamIDNotFoundException;
 import com.example.demo.model.Team;
 import com.example.demo.repo.TeamRepository;
@@ -37,11 +39,30 @@ public Team updateData(Team team, int id) {
 	}
 }
 
-	public List<Team> getAll() {
+@Override
+public List<Team> getAll() {
+	
+	
+	return (List<Team>) tr.findAll();
+}
 
-		return (List<Team>) tr.findAll();
+@Override
+public Team getSinglename(String tname) {
+
+	Optional<Team> team = tr.findByTname(tname);
+	if(team.isPresent()) 
+	{
+		return team.get();
 	}
-
+	else
+	{
+		throw  new NameIsNotFoundException("Name is not present in Your Team");   
+	}
+	
+	
+}
+  
+	
 	@Override
 	public Team getSingleData(int id) {
 

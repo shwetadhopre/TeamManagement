@@ -12,6 +12,16 @@ import com.example.demo.dto.Responsedto;
 @RestControllerAdvice
 public class ExceptionHandlers {
 
+	
+	@ExceptionHandler(NameIsNotFoundException.class)
+	public ResponseEntity<Responsedto> handlerexception(NameIsNotFoundException tname) {
+		Responsedto repo = new Responsedto();
+		repo.setMessage("name is not valid");
+		repo.setTimestamp(new Date());
+		return new ResponseEntity<Responsedto>(repo, HttpStatus.BAD_REQUEST);
+	}
+
+
 	@ExceptionHandler(TeamIDNotFoundException.class)
 	public ResponseEntity<Responsedto> handlerException(TeamIDNotFoundException tid){
 		Responsedto repo=new Responsedto();
@@ -21,4 +31,5 @@ public class ExceptionHandlers {
 		
 	}
 	
+
 }

@@ -51,6 +51,17 @@ public class HomeController
 	   
 	   return new ResponseEntity<List<Team>>(team,HttpStatus.ACCEPTED);
    }
+
+   
+   @GetMapping("/getname/{tname}")
+	public ResponseEntity<Team> getsingle(@PathVariable String tname) {
+	   Team team = si.getSinglename(tname);
+
+		return new ResponseEntity<Team>(team, HttpStatus.OK);
+	}
+
+	  
+
 	
    
    @GetMapping("getSingleTeam/{id}")
