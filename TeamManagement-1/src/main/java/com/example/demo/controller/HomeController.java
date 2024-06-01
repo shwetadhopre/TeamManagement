@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Team;
 import com.example.demo.service.ServiceI;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 public class HomeController 
@@ -26,7 +29,14 @@ public class HomeController
 		return new ResponseEntity<Team>(savedTeam, HttpStatus.CREATED);
 	}
 
-	  
+	 @PutMapping("teamupdate/{id}")
+	 public ResponseEntity<Team> putMethodName(@PathVariable int id, @RequestBody Team team) {
+	 	
+		 Team updateTeam=si.updateData(team,id);
+	 	
+	 	return new ResponseEntity<Team>(updateTeam,HttpStatus.OK);
+	 }
+   
     
    
    

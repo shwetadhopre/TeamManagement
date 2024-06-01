@@ -6,4 +6,6 @@ public interface ServiceI {
 
 	Team saveTeamDetails(Team team);
 
+	Team updateData(Team team, int id);
+
 }
