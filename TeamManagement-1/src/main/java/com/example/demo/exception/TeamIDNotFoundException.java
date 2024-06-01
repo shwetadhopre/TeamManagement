@@ -1,3 +1,4 @@
+
 package com.example.demo.exception;
 
 public class TeamIDNotFoundException extends RuntimeException {
@@ -6,3 +7,6 @@ public class TeamIDNotFoundException extends RuntimeException {
 		super(msg);
 	}
 }
+
+
+
